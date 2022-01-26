@@ -39,7 +39,6 @@ class _UpdatePageState extends State<UpdatePage> {
         Navigator.pushNamedAndRemoveUntil(
             context, HomPage.id, (route) => false);
       }
-
       isLoading = false;
     });
   }
@@ -47,7 +46,6 @@ class _UpdatePageState extends State<UpdatePage> {
   @override
   void initState() {
     super.initState();
-
     _titleTextEditingController.text = widget.title!;
     _bodyTextEditingController.text = widget.body!;
   }

@@ -36,7 +36,6 @@ class AddPageState extends State<AddPage> {
         Navigator.pushNamedAndRemoveUntil(
             context, HomPage.id, (route) => false);
       }
-
       isLoading = false;
     });
   }

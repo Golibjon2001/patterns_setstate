@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       routes:{
         HomPage.id:(context)=>HomPage(),
         AddPage.id:(context)=>AddPage(),
-        EditPage.id:(context)=>EditPage(),
+        UpdatePage.id:(context)=>UpdatePage(),
       },
     );
   }

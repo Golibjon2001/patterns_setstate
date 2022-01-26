@@ -15,8 +15,8 @@ import 'hom_page.dart';
 
 class AddPageState extends State<AddPage> {
   bool isLoading = false;
-  TextEditingController _titleTextEditingController = TextEditingController();
-  TextEditingController _bodyTextEditingController = TextEditingController();
+  final TextEditingController _titleTextEditingController = TextEditingController();
+  final TextEditingController _bodyTextEditingController = TextEditingController();
 
   _apiPostCreate() async {
     setState(() {
@@ -29,7 +29,7 @@ class AddPageState extends State<AddPage> {
         userId: Random().nextInt(99999));
 
     var response =
-    await Network.GET(Network.API_CREATE, Network.paramsCreate(post));
+    await Network.POST(Network.API_CREATE, Network.paramsCreate(post));
 
     setState(() {
       if (response != null) {
@@ -45,12 +45,12 @@ class AddPageState extends State<AddPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Create'),
+        title: const Text('Create'),
       ),
       body: Stack(
         children: [
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               children: [
                 // Title
@@ -60,8 +60,8 @@ class AddPageState extends State<AddPage> {
                   child: Center(
                     child: TextField(
                       controller: _titleTextEditingController,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                      decoration: InputDecoration(
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                      decoration: const InputDecoration(
                         labelText: 'Title',
                         border: InputBorder.none,
                       ),
@@ -69,19 +69,19 @@ class AddPageState extends State<AddPage> {
                   ),
                 ),
 
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
 
                 // Body
                 Container(
                   height: 200,
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   child: TextField(
                     controller: _bodyTextEditingController,
-                    style: TextStyle(fontSize: 18),
+                    style: const TextStyle(fontSize: 18),
                     maxLines: 10,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Body',
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       border: InputBorder.none,

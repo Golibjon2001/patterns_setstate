@@ -7,7 +7,8 @@ import 'add_page.dart';
 import 'edit_page.dart';
 class HomPage extends StatefulWidget {
   static final String id="Hompage";
-  const HomPage({Key? key}) : super(key: key);
+  String? title,body;
+   HomPage({this.title,this.body,Key? key}) : super(key: key);
 
   @override
   _HomPageState createState() => _HomPageState();
@@ -78,13 +79,13 @@ class _HomPageState extends State<HomPage> {
         },
         backgroundColor:Colors.blue,
         foregroundColor:Colors.white,
-        child:Icon(Icons.add),
+        child:const Icon(Icons.add),
       ),
     );
   }
   Widget itemOPost(Post post){
     return Slidable(
-      actionPane: SlidableDrawerActionPane(),
+      actionPane: const SlidableDrawerActionPane(),
       actionExtentRatio: 0.25,
         child: Container(
           padding:const EdgeInsets.only(left:20,right:20,top:20),
@@ -103,6 +104,7 @@ class _HomPageState extends State<HomPage> {
           color: Colors.indigo,
           icon: Icons.edit,
           onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => UpdatePage(title: post.title, body: post.body)));
           },
         ),
       ],
